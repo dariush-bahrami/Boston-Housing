@@ -1,2 +1,4 @@
 #ignore spyder idle cofig files
 .spyproject/
+#ignore python cache files
+__pycache__/

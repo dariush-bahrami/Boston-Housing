@@ -6,6 +6,8 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras.layers.normalization import BatchNormalization
 
+from path_data import model_path
+
 # Loading Data, 404 training cases and 102 validation cases
 (x_train, y_train), (x_valid, y_valid) = boston_housing.load_data()
 # we have 13 predictor variables related to building age, mean number of rooms
@@ -37,3 +39,6 @@ model.compile(loss='mean_squared_error', optimizer='adam')
 # Fitting a regression model
 model.fit(x_train, y_train, batch_size=8, epochs=32, verbose=1,
           validation_data=(x_valid, y_valid))
+
+# Saving model
+model.save(model_path)
